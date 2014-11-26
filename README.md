@@ -26,7 +26,10 @@ Additional options:
     padding: 20,
 
     // Function to call once zooming completes
-    callback: function() { /* ... */ }
+    callback: function() { /* ... */ },
+
+    // Panning with mouse
+    pan: true
   });
 ```
 
