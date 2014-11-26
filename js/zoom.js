@@ -7,6 +7,9 @@
  */
 var zoom = (function(){
 
+	// Set options object to be able to reach it from the "public methods"
+	var options = {};
+
 	var TRANSITION_DURATION = 800;
 
 	// The current zoom level (scale)
@@ -42,7 +45,7 @@ var zoom = (function(){
 	// Zoom out if the user hits escape
 	document.addEventListener( 'keyup', function( event ) {
 		if( level !== 1 && event.keyCode === 27 ) {
-			zoom.out();
+			zoom.out(options);
 		}
 	} );
 
@@ -178,11 +181,13 @@ var zoom = (function(){
 		 *   - padding: spacing around the zoomed in element
 		 */
 		to: function( options ) {
+			// Save the options object
+			options = options;
 
 			// Due to an implementation limitation we can't zoom in
 			// to another element without zooming out first
 			if( level !== 1 ) {
-				zoom.out();
+				zoom.out(options);
 			}
 			else {
 				options.x = options.x || 0;
