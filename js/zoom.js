@@ -12,6 +12,8 @@ var zoom = (function(){
 
 	var TRANSITION_DURATION = 800;
 
+	var TRANSITION_EASING = 'ease-in-out';
+
 	// The current zoom level (scale)
 	var level = 1;
 
@@ -35,11 +37,11 @@ var zoom = (function(){
 
 	if( supportsTransforms ) {
 		// The easing that will be applied when we zoom in/out
-		document.body.style.transition = 'transform '+ TRANSITION_DURATION +'ms ease';
-		document.body.style.OTransition = '-o-transform '+ TRANSITION_DURATION +'ms ease';
-		document.body.style.msTransition = '-ms-transform '+ TRANSITION_DURATION +'ms ease';
-		document.body.style.MozTransition = '-moz-transform '+ TRANSITION_DURATION +'ms ease';
-		document.body.style.WebkitTransition = '-webkit-transform '+ TRANSITION_DURATION +'ms ease';
+		document.body.style.transition = 'transform '+ TRANSITION_DURATION +'ms ' + TRANSITION_EASING;
+		document.body.style.OTransition = '-o-transform '+ TRANSITION_DURATION +'ms ' + TRANSITION_EASING;
+		document.body.style.msTransition = '-ms-transform '+ TRANSITION_DURATION +'ms ' + TRANSITION_EASING;
+		document.body.style.MozTransition = '-moz-transform '+ TRANSITION_DURATION +'ms ' + TRANSITION_EASING;
+		document.body.style.WebkitTransition = '-webkit-transform '+ TRANSITION_DURATION +'ms ' + TRANSITION_EASING;
 	}
 
 	// Zoom out if the user hits escape
