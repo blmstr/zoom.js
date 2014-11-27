@@ -44,13 +44,6 @@ var zoom = (function(){
 		document.body.style.WebkitTransition = '-webkit-transform '+ TRANSITION_DURATION +'ms ' + TRANSITION_EASING;
 	}
 
-	// Zoom out if the user hits escape
-	document.addEventListener( 'keyup', function( event ) {
-		if( level !== 1 && event.keyCode === 27 ) {
-			zoom.out(options);
-		}
-	} );
-
 	// Monitor mouse movement for panning
 	document.addEventListener( 'mousemove', function( event ) {
 		if( level !== 1 ) {
